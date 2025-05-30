@@ -2,32 +2,32 @@
 
 namespace Vfjodorovs12\Paps;
 
-use Seat\AbstractSeatPlugin;
+use Seat\Services\AbstractSeatPlugin;
 
 class ServiceProvider extends AbstractSeatPlugin
 {
     public function boot()
     {
-        $this->addRoutes();
-        $this->addViews();
+        $this->add_routes();
+        $this->add_views();
         $this->addMigrations();
     }
 
-    public function addRoutes()
+    public function add_routes()
     {
         if (! $this->app->routesAreCached()) {
-            $this->loadRoutesFrom(__DIR__ . '/../routes/web.php');
+            $this->loadRoutesFrom(__DIR__.'/../routes/web.php');
         }
     }
 
-    public function addViews()
+    public function add_views()
     {
-        $this->loadViewsFrom(__DIR__ . '/../resources/views', 'paps');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'paps');
     }
 
     private function addMigrations()
     {
-        $this->loadMigrationsFrom(__DIR__ . '/../database/migrations/');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations/');
     }
 
     public function register()
@@ -40,7 +40,7 @@ class ServiceProvider extends AbstractSeatPlugin
 
     public function getName(): string
     {
-        return 'Paps Stat';
+        return 'PAPS Stat';
     }
 
     public function getPackageRepositoryUrl(): string
